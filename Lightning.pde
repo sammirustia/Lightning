@@ -3,9 +3,12 @@ int startY = 0;
 int endX = 150;
 int endY = 0;
 int cirX = 150;
-int cirY = 27;
+int cirY = 25;
 int radiusX = 150;
 int radiusY = 50;
+int houseX = 0;
+int houseY = 250;
+int houseHW = 50;
 
 void setup()
 {
@@ -15,7 +18,6 @@ void setup()
 
 void draw()
 {
-
 	stroke((int)(Math.random()*255),(int)(Math.random()*255),(int)(Math.random()*255));
 	
 	background(102,106,114);
@@ -31,11 +33,18 @@ void draw()
 	}
 
 	cloud();
+	houses();
 }
 
 void cloud() {
 	fill(255);
 	ellipse(cirX,cirY,radiusX,radiusY);
+}
+
+void houses()
+{
+	fill((int)(Math.random()*255));
+	rect(houseX,houseY,houseHW,houseHW);
 }
 
 void mousePressed()
@@ -45,4 +54,5 @@ void mousePressed()
 	endX = 150;
 	endY = 0;
 }
+
 
