@@ -6,7 +6,6 @@ int cirX = 150;
 int cirY = 25;
 int radiusX = 150;
 int radiusY = 50;
-int houseX = 0;
 int houseY = 250;
 int houseHW = 50;
 
@@ -29,7 +28,6 @@ void draw()
 		startY = endY;
 		endY = startY + (int)(Math.random()*9);
 		endX = startX + ((int)(Math.random()*18) - 9);
-		
 	}
 
 	cloud();
@@ -43,8 +41,18 @@ void cloud() {
 
 void houses()
 {
-	fill((int)(Math.random()*255));
-	rect(houseX,houseY,houseHW,houseHW);
+	noStroke();
+	fill(0);
+	int houseX = 25;
+	int roofX = 25;
+
+	while(houseX < 300)
+	{
+		rect(houseX,houseY,houseHW,houseHW);
+		houseX = houseX + 100;
+		triangle(roofX,houseY,roofX + 50,houseY,roofX + 25,houseY - 25);
+		roofX = roofX + 100;
+	}
 }
 
 void mousePressed()
